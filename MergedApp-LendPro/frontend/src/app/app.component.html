@@ -1,0 +1,43 @@
+<div class="app-container">
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-brand">
+        <div class="logo" routerLink="/">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+            <rect x="4" y="8" width="24" height="16" rx="3" stroke="currentColor" stroke-width="2" fill="none"/>
+            <path d="M8 16H12M8 12H16M8 20H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            <circle cx="22" cy="12" r="2" fill="currentColor"/>
+          </svg>
+          <h1>{{ title }}</h1>
+        </div>
+      </div>
+      <div class="nav-links">
+        <!-- Always visible links -->
+        <a routerLink="/search" routerLinkActive="active">Home Search</a>
+        <a routerLink="/mortgage-tools" routerLinkActive="active">Mortgage Tools</a>
+        
+        <!-- Role-based links -->
+        <ng-container *ngIf="authService.isAuthenticated()">
+          <!-- Admin users see both Admin Dashboard and User Dashboard -->
+          <a routerLink="/admin" routerLinkActive="active" *ngIf="authService.isAdmin()">Admin Dashboard</a>
+          <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        </ng-container>
+        
+        <!-- Auth links -->
+        <a routerLink="/login" routerLinkActive="active" *ngIf="!authService.isAuthenticated()">Login</a>
+        <a (click)="authService.logout()" class="logout-link" *ngIf="authService.isAuthenticated()">Logout</a>
+      </div>
+    </nav>
+  </header>
+  
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+  
+  <footer class="footer">
+    <p>&copy; 2025 LendPro. All rights reserved.</p>
+  </footer>
+  
+  <!-- Global notifications -->
+  <app-notifications></app-notifications>
+</div>

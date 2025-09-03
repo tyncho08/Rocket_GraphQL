@@ -1,0 +1,5 @@
+is_global = true
+build_property.RootNamespace = MortgagePlatform.API
+build_property.ProjectDir = /Users/MartinGonella/Desktop/Demos/Rocket_Nextjs/MergedApp-LendPro/backend/MortgagePlatform.API/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

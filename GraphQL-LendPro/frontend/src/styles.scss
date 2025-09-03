@@ -1,0 +1,783 @@
+/* Global Professional Design System */
+
+/* Professional Color Palette & Design Tokens */
+:root {
+  /* Primary Colors - Professional Navy & Gray */
+  --primary-dark: #1a365d;          /* Deep navy for headers and important elements */
+  --primary-medium: #2d3748;        /* Medium gray-blue for text */
+  --primary-light: #4a5568;         /* Light gray for secondary text */
+  
+  /* Background Colors - Clean & Professional */
+  --background-primary: #ffffff;     /* Pure white for main backgrounds */
+  --background-secondary: #f7fafc;   /* Very light gray for sections */
+  --background-tertiary: #edf2f7;    /* Light gray for cards and containers */
+  
+  /* Accent Colors - Minimal & Professional */
+  --accent-success: #38a169;         /* Professional green for positive actions */
+  --accent-warning: #d69e2e;         /* Muted yellow for warnings */
+  --accent-danger: #e53e3e;          /* Professional red for errors */
+  
+  /* Border & Shadow Colors */
+  --border-light: #e2e8f0;          /* Light borders */
+  --border-medium: #cbd5e0;         /* Medium borders */
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.1);
+  --shadow-strong: rgba(0, 0, 0, 0.15);
+  
+  /* Text Colors */
+  --text-primary: #2d3748;          /* Main text color */
+  --text-secondary: #4a5568;        /* Secondary text */
+  --text-muted: #718096;            /* Muted text */
+  --text-white: #ffffff;            /* White text for dark backgrounds */
+  
+  /* DESIGN SYSTEM - Unified Spacing Scale */
+  --space-xs: 0.5rem;     /* 8px - tight spacing */
+  --space-sm: 1rem;       /* 16px - small spacing */
+  --space-md: 1.5rem;     /* 24px - medium spacing */
+  --space-lg: 2rem;       /* 32px - large spacing */
+  --space-xl: 3rem;       /* 48px - extra large spacing */
+  --space-2xl: 4rem;      /* 64px - section spacing */
+  
+  /* Border Radius Scale */
+  --radius-sm: 0.375rem;  /* 6px - buttons, inputs */
+  --radius-md: 0.5rem;    /* 8px - cards */
+  --radius-lg: 0.75rem;   /* 12px - large cards */
+  --radius-xl: 1rem;      /* 16px - modals */
+  
+  /* Typography Scale */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 2rem;       /* 32px */
+  
+  /* Component Heights */
+  --height-input: 2.75rem;    /* 44px - standard input height */
+  --height-button: 2.75rem;   /* 44px - standard button height */
+  --height-button-sm: 2rem;   /* 32px - small button height */
+  --height-button-lg: 3rem;   /* 48px - large button height */
+}
+
+/* Professional Typography */
+body {
+  font-family: 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  color: var(--text-primary);
+  line-height: 1.6;
+  background-color: var(--background-secondary);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--primary-dark);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+/* UNIFIED BUTTON SYSTEM - All buttons use consistent design tokens */
+.btn {
+  /* Base button styles */
+  font-family: inherit;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  
+  /* Standard button size (default) */
+  height: var(--height-button);
+  padding: 0 var(--space-md);
+  font-size: var(--text-base);
+  border-radius: var(--radius-sm);
+  gap: var(--space-xs);
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+  }
+}
+
+/* Button Variants */
+.btn-primary {
+  background-color: var(--primary-dark);
+  color: var(--text-white);
+  border-color: var(--primary-dark);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--primary-medium);
+    border-color: var(--primary-medium);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px var(--shadow-medium);
+  }
+}
+
+.btn-secondary {
+  background-color: var(--background-primary);
+  color: var(--primary-dark);
+  border-color: var(--border-medium);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--background-tertiary);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--primary-dark);
+  border-color: var(--primary-dark);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--primary-dark);
+    color: var(--text-white);
+    transform: translateY(-1px);
+  }
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--text-white);
+  border-color: var(--text-white);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--text-white);
+    color: var(--primary-dark);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  }
+}
+
+.btn-success {
+  background-color: var(--accent-success);
+  color: var(--text-white);
+  border-color: var(--accent-success);
+  
+  &:hover:not(:disabled) {
+    background-color: #2d7a4b;
+    border-color: #2d7a4b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(56, 161, 105, 0.3);
+  }
+}
+
+.btn-warning {
+  background-color: var(--accent-warning);
+  color: var(--text-white);
+  border-color: var(--accent-warning);
+  
+  &:hover:not(:disabled) {
+    background-color: #b7791f;
+    border-color: #b7791f;
+    transform: translateY(-1px);
+  }
+}
+
+.btn-danger {
+  background-color: var(--accent-danger);
+  color: var(--text-white);
+  border-color: var(--accent-danger);
+  
+  &:hover:not(:disabled) {
+    background-color: #c53030;
+    border-color: #c53030;
+    transform: translateY(-1px);
+  }
+}
+
+/* Button Sizes */
+.btn-sm {
+  height: var(--height-button-sm);
+  padding: 0 var(--space-sm);
+  font-size: var(--text-sm);
+}
+
+.btn-lg {
+  height: var(--height-button-lg);
+  padding: 0 var(--space-lg);
+  font-size: var(--text-lg);
+}
+
+/* Button Modifiers */
+.btn-block {
+  width: 100%;
+  display: flex;
+}
+
+.btn-link {
+  background: transparent;
+  color: var(--primary-dark);
+  border: none;
+  text-decoration: underline;
+  height: auto;
+  padding: var(--space-xs);
+  
+  &:hover:not(:disabled) {
+    text-decoration: none;
+    transform: none;
+  }
+}
+
+/* Professional Card Styles */
+.card-professional {
+  background: var(--background-primary);
+  border: 1px solid var(--border-light);
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px var(--shadow-light);
+  transition: all 0.2s ease;
+  
+  &:hover {
+    box-shadow: 0 4px 12px var(--shadow-medium);
+    transform: translateY(-2px);
+  }
+}
+
+/* Remove default button styles */
+button {
+  font-family: inherit;
+}
+
+/* Professional spacing utilities */
+.space-y-4 > * + * {
+  margin-top: 1rem;
+}
+
+.space-y-6 > * + * {
+  margin-top: 1.5rem;
+}
+
+/* UNIFIED FORM SYSTEM - Consistent form field styles */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.form-group label {
+  display: block;
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-xs);
+  line-height: 1.4;
+}
+
+.form-control, .form-input, .form-select {
+  width: 100%;
+  height: var(--height-input);
+  padding: 0 var(--space-sm);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-base);
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+  
+  &:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 0 3px rgba(26, 54, 93, 0.1);
+  }
+  
+  &::placeholder {
+    color: var(--text-muted);
+  }
+  
+  &:disabled {
+    background-color: var(--background-tertiary);
+    color: var(--text-muted);
+    cursor: not-allowed;
+  }
+}
+
+.form-input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix, .input-suffix {
+  position: absolute;
+  color: var(--text-muted);
+  font-weight: 500;
+  font-size: var(--text-sm);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.input-prefix {
+  left: var(--space-sm);
+}
+
+.input-suffix {
+  right: var(--space-sm);
+}
+
+.form-input-group .form-control,
+.form-input-group .form-input {
+  &.has-prefix {
+    padding-left: calc(var(--space-sm) * 2);
+  }
+  
+  &.has-suffix {
+    padding-right: calc(var(--space-sm) * 2);
+  }
+}
+
+.form-error {
+  color: var(--accent-danger);
+  font-size: var(--text-xs);
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+.form-help {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+  margin-top: var(--space-xs);
+  line-height: 1.4;
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: calc(var(--height-input) * 2);
+  padding: var(--space-sm);
+  resize: vertical;
+}
+
+/* Angular Material overrides for professional look */
+.mat-mdc-card {
+  background: var(--background-primary);
+  border: 1px solid var(--border-light);
+  box-shadow: 0 1px 3px var(--shadow-light);
+}
+
+.mat-mdc-button.mat-primary {
+  --mdc-filled-button-container-color: var(--primary-dark);
+}
+
+.mat-mdc-button.mat-accent {
+  --mdc-filled-button-container-color: var(--accent-success);
+}
+
+/* UNIFIED GRID SYSTEM - Consistent grid patterns across all components */
+.grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.grid-auto-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-sm);
+}
+
+.grid-auto-lg {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-lg);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.grid-sidebar-main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-xl);
+}
+
+.grid-main-sidebar {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-xl);
+}
+
+.grid-equal {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* Form Grid Layouts */
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+.form-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* Button Group Layout Utilities */
+.button-group {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.button-group-center {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-group-end {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.button-group-between {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Card & Container Layouts */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+
+.card-grid-sm {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: var(--space-sm);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-md);
+}
+
+/* Section Layouts */
+.section {
+  margin-bottom: var(--space-xl);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-md);
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+.section-content {
+  padding: var(--space-lg);
+  background: var(--background-primary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .grid-2, .grid-3, .grid-4, 
+  .grid-sidebar-main, .grid-main-sidebar,
+  .form-grid-2, .form-grid-3 {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+  
+  .grid-equal {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-header {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .button-group-between {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-auto, .card-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+}
+
+/* Responsive Button Stacking */
+@media (max-width: 640px) {
+  .button-group-mobile-stack {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  
+  .button-group-mobile-stack button,
+  .button-group-mobile-stack .btn-primary,
+  .button-group-mobile-stack .btn-secondary {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+/* Container-Aware Button Groups */
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0;
+  
+  &.container-small {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* Fix for absolute positioned buttons */
+.button-overlay-safe {
+  position: relative;
+  z-index: 10;
+  margin: 0.25rem;
+}
+
+/* SPACING UTILITIES - Consistent spacing across all components */
+.m-0 { margin: 0; }
+.m-xs { margin: var(--space-xs); }
+.m-sm { margin: var(--space-sm); }
+.m-md { margin: var(--space-md); }
+.m-lg { margin: var(--space-lg); }
+.m-xl { margin: var(--space-xl); }
+.m-2xl { margin: var(--space-2xl); }
+
+.mt-0 { margin-top: 0; }
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+.mb-0 { margin-bottom: 0; }
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+
+.ml-0 { margin-left: 0; }
+.ml-xs { margin-left: var(--space-xs); }
+.ml-sm { margin-left: var(--space-sm); }
+.ml-md { margin-left: var(--space-md); }
+.ml-auto { margin-left: auto; }
+
+.mr-0 { margin-right: 0; }
+.mr-xs { margin-right: var(--space-xs); }
+.mr-sm { margin-right: var(--space-sm); }
+.mr-md { margin-right: var(--space-md); }
+.mr-auto { margin-right: auto; }
+
+.p-0 { padding: 0; }
+.p-xs { padding: var(--space-xs); }
+.p-sm { padding: var(--space-sm); }
+.p-md { padding: var(--space-md); }
+.p-lg { padding: var(--space-lg); }
+.p-xl { padding: var(--space-xl); }
+.p-2xl { padding: var(--space-2xl); }
+
+.pt-0 { padding-top: 0; }
+.pt-xs { padding-top: var(--space-xs); }
+.pt-sm { padding-top: var(--space-sm); }
+.pt-md { padding-top: var(--space-md); }
+.pt-lg { padding-top: var(--space-lg); }
+.pt-xl { padding-top: var(--space-xl); }
+
+.pb-0 { padding-bottom: 0; }
+.pb-xs { padding-bottom: var(--space-xs); }
+.pb-sm { padding-bottom: var(--space-sm); }
+.pb-md { padding-bottom: var(--space-md); }
+.pb-lg { padding-bottom: var(--space-lg); }
+.pb-xl { padding-bottom: var(--space-xl); }
+
+.pl-0 { padding-left: 0; }
+.pl-xs { padding-left: var(--space-xs); }
+.pl-sm { padding-left: var(--space-sm); }
+.pl-md { padding-left: var(--space-md); }
+.pl-lg { padding-left: var(--space-lg); }
+
+.pr-0 { padding-right: 0; }
+.pr-xs { padding-right: var(--space-xs); }
+.pr-sm { padding-right: var(--space-sm); }
+.pr-md { padding-right: var(--space-md); }
+.pr-lg { padding-right: var(--space-lg); }
+
+/* ENHANCED PAGINATION SYSTEM */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  flex-wrap: wrap;
+  margin: var(--space-lg) 0;
+}
+
+.pagination-btn, .pagination-number {
+  height: var(--height-button-sm);
+  min-width: var(--height-button-sm);
+  padding: 0 var(--space-sm);
+  border: 1px solid var(--border-medium);
+  background: var(--background-primary);
+  color: var(--text-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  
+  &:hover:not(:disabled) {
+    background: var(--background-tertiary);
+    border-color: var(--primary-dark);
+    transform: translateY(-1px);
+  }
+  
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  &.active {
+    background-color: var(--primary-dark);
+    color: var(--text-white);
+    border-color: var(--primary-dark);
+  }
+}
+
+.pagination-info {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  margin: 0 var(--space-sm);
+}
+
+/* Empty State Utilities */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-2xl);
+  color: var(--text-secondary);
+}
+
+.empty-state-icon {
+  margin-bottom: var(--space-md);
+  color: var(--text-muted);
+  font-size: 3rem;
+}
+
+.empty-state h3 {
+  color: var(--primary-dark);
+  margin-bottom: var(--space-xs);
+}
+
+.empty-state p {
+  margin-bottom: var(--space-md);
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+/* Loading States */
+.loading-spinner {
+  border: 3px solid var(--background-tertiary);
+  border-top: 3px solid var(--primary-dark);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: var(--space-md) auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+/* Responsive Pagination */
+@media (max-width: 640px) {
+  .pagination {
+    justify-content: space-between;
+    gap: var(--space-xs);
+  }
+  
+  .pagination-info {
+    order: -1;
+    width: 100%;
+    text-align: center;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .pagination-btn, .pagination-number {
+    min-width: auto;
+    padding: 0 var(--space-xs);
+  }
+}
